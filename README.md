@@ -98,3 +98,17 @@ Edge cases were tested to ensure proper handling of various scenarios. Below are
 | Amandeep Upadhyay (210114)       | 33%              | Implemented core server logic including client handling, authenication and multithreading |
 | Kirti (210522)       | 33%              | Developed messaging features,private,group and broadcast messaging, debugging       |
 | Mohammad Suhail Ilyas (210617)      | 33%              | Testing, stress testing, documentation and debugging edge cases      |
+
+## Sources
+
+**Books:**  
+- *Computer Networking: A Top-Down Approach* – Kurose & Ross.
+
+**Websites:**  
+- [TutorialsPoint - C++ Multithreading](https://www.tutorialspoint.com/cplusplus/cpp_multithreading.htm)  
+- [GeeksforGeeks - Socket Programming in C++](https://www.geeksforgeeks.org/socket-programming-in-cpp/)  
+- [YouTube - Jim Kurose: Computer Networking](https://www.youtube.com/watch?v=_iHMMo7SDfQ&ab_channel=JimKurose)
+
+## Declaration
+
+We declare that this assignment was completed independently and does not contain plagiarized content. 
