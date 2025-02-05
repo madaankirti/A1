@@ -1,6 +1,9 @@
 # Assignment 1
-Course: CS425- Computer Networks
-Group Members: Amandeep Upadhyay (210114), Kirti (210522), Mohammad Suhail Ilyas (210617)
+**Course:** CS425 - Computer Networks  
+**Group Members:**  
+- Amandeep Upadhyay (210114)  
+- Kirti (210522)  
+- Mohammad Suhail Ilyas (210617)
 ## Features  
 ### Implemented Features  
 1. **Multi-threaded TCP server**  
