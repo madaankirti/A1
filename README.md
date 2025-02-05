@@ -90,3 +90,11 @@ Edge cases were tested to ensure proper handling of various scenarios. Below are
 2. Debugging multi-threaded code was challenging due to the unpredictable execution order of threads. To address this, extensive logging with `std::cerr` was implemented, allowing us to track execution flow and identify potential issues more effectively.
 
 3. Parsing user commands required extracting parameters such as `group_name` and `username`. This was accomplished using `std::string::find()` and `std::string::substr()`, ensuring accurate parsing while maintaining efficiency.
+
+## Individual Contributions
+
+| Member Name  | Contribution (%) | Tasks Completed                          |
+|--------------|------------------|-------------------------------------------|
+| Amandeep Upadhyay (210114)       | 33%              | Implemented core server logic including client handling, authenication and multithreading |
+| Kirti (210522)       | 33%              | Developed messaging features,private,group and broadcast messaging, debugging       |
+| Mohammad Suhail Ilyas (210617)      | 33%              | Testing, stress testing, documentation and debugging edge cases      |
