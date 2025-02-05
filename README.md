@@ -112,3 +112,6 @@ Edge cases were tested to ensure proper handling of various scenarios. Below are
 ## Declaration
 
 We declare that this assignment was completed independently and does not contain plagiarized content. 
+
+## Feedback
+This assignment was a great learning experience, providing practical knowledge of socket programming, multithreading and client-server communication.
