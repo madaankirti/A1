@@ -34,3 +34,20 @@ Used **one thread per client** instead of creating a new process per client.
 | `send_private_message(const std::string &sender, const std::string &command, int client_socket)` | Handles private messaging.                                      |
 | `send_group_message(const std::string &sender, int sender_socket, const std::string &command)`   | Sends a message to all members of a group.                      |
 | `broadcast_to_clients(const std::string &message, int sender_socket)`     | Broadcasts messages to all users.                               |
+```mermaid
+flowchart TD
+    A[Start] --> B[Read users.txt for authentication]
+    B --> C[Create TCP socket, bind to port, listen for connections]
+    C --> D[Client connection detected]
+    D --> E[Create new thread for client]
+    E --> F[Prompt for username & password]
+    F --> G{Username & Password valid?}
+    G -- Yes --> H[Parse commands (/msg, /broadcast, /group_msg, etc.)]
+    G -- No --> I[Notify client of invalid credentials]
+    H --> J[Execute appropriate function based on command]
+    J --> K[Client sends next command or disconnects]
+    K --> L{Client disconnected?}
+    L -- Yes --> M[Remove client from active users]
+    M --> N[Notify other clients of disconnection]
+    L -- No --> K
+    N --> O[End]
