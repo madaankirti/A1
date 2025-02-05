@@ -42,7 +42,7 @@ flowchart TD
     D --> E[Create new thread for client]
     E --> F[Prompt for username & password]
     F --> G{Username & Password valid?}
-    G -- Yes --> H[Parse commands (/msg, /broadcast, /group_msg, etc.)]
+    G -- Yes --> H[Parse commands (`/msg`, `/broadcast`, `/group_msg`, etc.)]
     G -- No --> I[Notify client of invalid credentials]
     H --> J[Execute appropriate function based on command]
     J --> K[Client sends next command or disconnects]
@@ -51,3 +51,4 @@ flowchart TD
     M --> N[Notify other clients of disconnection]
     L -- No --> K
     N --> O[End]
+
