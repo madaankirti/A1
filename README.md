@@ -26,3 +26,11 @@ Used **one thread per client** instead of creating a new process per client.
 | `std::mutex clients_list_mutex`                  | Synchronizes access to shared data          | Prevents race conditions                 |
 | `std::mutex log_mutex`                           | Ensures ordered logging output              | Avoids mixed console output              |
   
+## High Level idea of various functions
+| Function                                                                 | Purpose                                                        |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| `handle_client(int client_socket)`                                        | Manages client authentication and message handling.            |
+| `client_authenticate(int client_socket, std::string &username)`          | Authenticates users from `users.txt`.                           |
+| `send_private_message(const std::string &sender, const std::string &command, int client_socket)` | Handles private messaging.                                      |
+| `send_group_message(const std::string &sender, int sender_socket, const std::string &command)`   | Sends a message to all members of a group.                      |
+| `broadcast_to_clients(const std::string &message, int sender_socket)`     | Broadcasts messages to all users.                               |
