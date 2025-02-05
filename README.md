@@ -55,3 +55,31 @@ Used **one thread per client** instead of creating a new process per client.
 5. **Invalid Authentication:**
    - If the username or password is invalid, the server notifies the client and asks for the credentials again.
 
+## Testing
+
+### 1. **Correctness Testing**
+
+The following functionalities have been verified:
+
+- **Client Connection & Authentication**: Clients can successfully connect, authenticate, and send messages.
+- **Message Delivery**: Both private and group messages are delivered correctly to the intended recipients.
+- **Pre-authentication Message Restriction**: Users are not allowed to send messages before completing the authentication process.
+
+### 2. **Stress Testing**
+
+To ensure the system can handle high loads, the following stress tests were conducted:
+
+- **Concurrent Clients**: Simulated multiple concurrent clients to evaluate thread stability and server performance.
+- **Heavy Message Load**: Tested the server's ability to handle a large volume of messages under stress.
+
+### 3. **Edge Cases Handled**
+
+Edge cases were tested to ensure proper handling of various scenarios. Below are the scenarios and their expected behaviors:
+
+| **Scenario**                            | **Expected Behavior**                             |
+|-----------------------------------------|--------------------------------------------------|
+| Sending a message to a non-existent user | An error message is displayed to the sender.     |
+| Trying to join a non-existent group     | An error message is displayed to the user.       |
+| Sending messages before authentication  | The connection is closed and access is denied.   |
+| User disconnects while in a group       | The user is removed from the group list.         |
+
