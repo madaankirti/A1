@@ -34,21 +34,24 @@ Used **one thread per client** instead of creating a new process per client.
 | `send_private_message(const std::string &sender, const std::string &command, int client_socket)` | Handles private messaging.                                      |
 | `send_group_message(const std::string &sender, int sender_socket, const std::string &command)`   | Sends a message to all members of a group.                      |
 | `broadcast_to_clients(const std::string &message, int sender_socket)`     | Broadcasts messages to all users.                               |
-```mermaid
-flowchart TD
-    A[Start] --> B[Read users.txt for authentication]
-    B --> C[Create TCP socket, bind to port, listen for connections]
-    C --> D[Client connection detected]
-    D --> E[Create new thread for client]
-    E --> F[Prompt for username & password]
-    F --> G{Username & Password valid?}
-    G -- Yes --> H[Parse commands (`/msg`, `/broadcast`, `/group_msg`, etc.)]
-    G -- No --> I[Notify client of invalid credentials]
-    H --> J[Execute appropriate function based on command]
-    J --> K[Client sends next command or disconnects]
-    K --> L{Client disconnected?}
-    L -- Yes --> M[Remove client from active users]
-    M --> N[Notify other clients of disconnection]
-    L -- No --> K
-    N --> O[End]
+
+### Explanation of Flow:
+1. **Server Initialization:**
+   - The server reads `users.txt` for authentication details.
+   - It then creates a TCP socket, binds to a port, and listens for incoming client connections.
+
+2. **Client Connection & Authentication:**
+   - Once a connection is detected, the server creates a new thread to handle the client.
+   - The client is prompted to enter a username and password, which are validated.
+
+3. **Message Processing:**
+   - If the credentials are valid, the server listens for commands such as `/msg`, `/broadcast`, or `/group_msg`.
+   - Based on the received command, the server executes the corresponding function.
+
+4. **Client Disconnection Handling:**
+   - If the client disconnects, they are removed from the active users list.
+   - The server notifies other clients of the disconnection.
+
+5. **Invalid Authentication:**
+   - If the username or password is invalid, the server notifies the client and asks for the credentials again.
 
