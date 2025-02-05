@@ -83,3 +83,10 @@ Edge cases were tested to ensure proper handling of various scenarios. Below are
 | Sending messages before authentication  | The connection is closed and access is denied.   |
 | User disconnects while in a group       | The user is removed from the group list.         |
 
+## Challenges
+
+1. To handle concurrent clients, we needed to manage simultaneous access to shared data structures like clients and groups. To prevent race conditions, `std::mutex` was used to ensure safe access and maintain data consistency.
+
+2. Debugging multi-threaded code was challenging due to the unpredictable execution order of threads. To address this, extensive logging with `std::cerr` was implemented, allowing us to track execution flow and identify potential issues more effectively.
+
+3. Parsing user commands required extracting parameters such as `group_name` and `username`. This was accomplished using `std::string::find()` and `std::string::substr()`, ensuring accurate parsing while maintaining efficiency.
